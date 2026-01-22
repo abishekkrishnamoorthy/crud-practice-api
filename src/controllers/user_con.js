@@ -16,7 +16,24 @@ const getUsers = async (req, res) => {
     });
   }
 };
+const create = async (req, res) => {
+  try {
+    const {name, email} = await req.body;
+    const user = await User.create({name , email});    
+    res.status(201).json({
+      success: true,
+      data: user
+    });
+  } catch (error) {
+    console.error(req.body);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create user'
+    });
+  }
+}
 
 module.exports = {
-  getUsers
+  getUsers,
+  create
 };
