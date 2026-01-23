@@ -28,7 +28,7 @@ const create = async (req, res) => {
     console.error(req.body);
     res.status(500).json({
       success: false,
-      message: 'Failed to create user
+      message: 'Failed to create user'
     });
   }
 }
